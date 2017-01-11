@@ -1,0 +1,40 @@
+<div>
+    <h1>
+        HOME PAGE / LIST OF PROFILES
+    </h1>
+</div>
+
+{% if user.is_authenticated %}
+<div>
+    <span>
+            <p> Hi, {{ user.username }}</p>
+            <a href = "{% url 'logout:index' %}"> Logout</a>
+    </span>
+</div>
+<div>
+    <ul>
+        {% for user in all_users %}
+            <li> <a href = "{% url 'home:profile' user.pk %}"> {{ user.username }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% else %}
+
+<div>
+    <span>
+        <a href = " {% url 'login:index' %}">
+            LOGIN
+        </a>
+        OR
+        <a href = " {% url 'signup:index' %}">
+            SIGNUP
+        </a>
+
+    </span>
+</div>
+
+{% endif %}
+
+
+

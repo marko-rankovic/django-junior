@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.first_name }} {{user.last_name}}</title>
+</head>
+<body>
+<div>
+    <h1>{{ user.first_name }} {{user.last_name}}</h1>
+</div>
+<div>
+    <label>Username:</label> <label>{{user.username}}</label>
+    <br>
+    <label>Email:</label> <label>{{user.email}}</label>
+</div>
+<div>
+    <a href = "{% url 'home:index' %}">
+        Back to Home
+    </a>
+</div>
+</body>
+</html>

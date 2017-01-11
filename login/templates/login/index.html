@@ -1,0 +1,23 @@
+{% if message %}
+<div>
+    <p>
+        ERROR: {{ message }}
+    </p>
+</div>
+{% endif %}
+
+{% if success == 1 %}
+
+<form action="{% url 'home:index' %}" method="get">
+    <button type="submit"> Go to Homepage </button>
+</form>
+
+{% else %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {% include 'login/form.html' %}
+    <button type="submit"> Submit </button>
+</form>
+
+{% endif %}
